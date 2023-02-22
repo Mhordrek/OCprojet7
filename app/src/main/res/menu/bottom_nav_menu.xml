@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_mapview"
+        android:title="@string/button_mapview" />
+
+    <item
+        android:id="@+id/navigation_listview"
+        android:title="@string/button_listview" />
+
+    <item
+        android:id="@+id/navigation_workmates"
+        android:title="@string/button_workmates" />
+
+</menu>
