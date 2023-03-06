@@ -28,11 +28,5 @@ public class WorkmatesFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_workmates, container, false);
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        workmatesViewModel = new ViewModelProvider(this).get(WorkmatesViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

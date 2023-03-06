@@ -1,20 +1,17 @@
 package com.example.go4lunch.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.go4lunch.R;
 import com.example.go4lunch.databinding.FragmentLoginBinding;
 import com.example.go4lunch.manager.UserManager;
-import com.facebook.FacebookSdk;
 import com.firebase.ui.auth.AuthUI;
 
 import java.util.Arrays;
@@ -26,6 +23,7 @@ public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private static final int RC_SIGN_IN = 123;
     private UserManager userManager = UserManager.getInstance();
+
 
 
     public LoginFragment() {
@@ -45,21 +43,14 @@ public class LoginFragment extends Fragment {
         binding.buttonFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(userManager.isCurrentUserLogged()){
-                    //startProfileActivity();
-                }else{
-                    startFacebookSignInActivity();
-                }
+                startFacebookSignInActivity();
             }
         });
         binding.buttonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(userManager.isCurrentUserLogged()){
-                    //startProfileActivity();
-                }else{
-                    startGoogleSignInActivity();
-                }
+                //startGoogleSignInActivity();
+               Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
             }
         });
         return view;
