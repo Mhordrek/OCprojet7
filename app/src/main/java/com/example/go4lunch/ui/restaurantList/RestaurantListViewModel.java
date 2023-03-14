@@ -1,4 +1,4 @@
-package com.example.go4lunch.ui.listview;
+package com.example.go4lunch.ui.restaurantList;
 
 import androidx.lifecycle.ViewModel;
 

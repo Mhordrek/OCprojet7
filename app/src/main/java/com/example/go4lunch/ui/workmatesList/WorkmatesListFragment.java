@@ -1,6 +1,4 @@
-package com.example.go4lunch.ui.workmates;
-
-import androidx.lifecycle.ViewModelProvider;
+package com.example.go4lunch.ui.workmatesList;
 
 import android.os.Bundle;
 
@@ -14,12 +12,12 @@ import android.view.ViewGroup;
 
 import com.example.go4lunch.R;
 
-public class WorkmatesFragment extends Fragment {
+public class WorkmatesListFragment extends Fragment {
 
-    private WorkmatesViewModel workmatesViewModel;
+    private WorkmatesListViewModel workmatesViewModel;
 
-    public static WorkmatesFragment newInstance() {
-        return new WorkmatesFragment();
+    public static WorkmatesListFragment newInstance() {
+        return new WorkmatesListFragment();
     }
 
     @Override

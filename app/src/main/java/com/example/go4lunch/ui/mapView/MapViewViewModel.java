@@ -1,4 +1,4 @@
-package com.example.go4lunch.ui.mapview;
+package com.example.go4lunch.ui.mapView;
 
 import androidx.lifecycle.ViewModel;
 

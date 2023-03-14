@@ -1,6 +1,7 @@
 package com.example.go4lunch.repository;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -53,6 +54,7 @@ public class UserRepository {
             // If the user already exist in Firestore, we get his data (isMentor)
             userData.addOnSuccessListener(documentSnapshot -> {
                 this.getUsersCollection().document(uid).set(userToCreate);
+                Log.d("facebook","user created");
             });
         }
     }

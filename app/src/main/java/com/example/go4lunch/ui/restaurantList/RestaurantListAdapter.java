@@ -1,4 +1,4 @@
-package com.example.go4lunch.ui.listview;
+package com.example.go4lunch.ui.restaurantList;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +24,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textview = (TextView) itemView.findViewById(R.id.textview);
+            textview = (TextView) itemView.findViewById(R.id.restaurantname);
         }
         public TextView getTextview(){return textview;}
     }

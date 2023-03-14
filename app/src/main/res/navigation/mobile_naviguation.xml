@@ -11,18 +11,18 @@
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <fragment
-        android:id="@+id/listViewFragment"
-        android:name="com.example.go4lunch.ui.listview.RestaurantListFragment"
+        android:id="@+id/RestaurantListFragment"
+        android:name="com.example.go4lunch.ui.restaurantList.RestaurantListFragment"
         android:label="fragment_list_view"
-        tools:layout="@layout/fragment_list_view" />
+        tools:layout="@layout/fragment_list_restaurant" />
     <fragment
         android:id="@+id/mapViewFragment"
-        android:name="com.example.go4lunch.ui.mapview.MapViewFragment"
+        android:name="com.example.go4lunch.ui.mapView.MapViewFragment"
         android:label="fragment_map_view"
         tools:layout="@layout/fragment_map_view" />
     <fragment
         android:id="@+id/workmatesFragment"
-        android:name="com.example.go4lunch.ui.workmates.WorkmatesFragment"
+        android:name="com.example.go4lunch.ui.workmatesList.WorkmatesListFragment"
         android:label="fragment_workmates"
         tools:layout="@layout/fragment_workmates" />
     <fragment
@@ -37,13 +37,14 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.go4lunch.ui.MainFragment"
-        android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_listViewFragment"
-            app:destination="@id/listViewFragment" />
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_mapViewFragment"
             app:destination="@id/mapViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_RestaurantListFragment"
+            app:destination="@id/RestaurantListFragment" />
         <action
             android:id="@+id/action_mainFragment_to_workmatesFragment"
             app:destination="@id/workmatesFragment" />

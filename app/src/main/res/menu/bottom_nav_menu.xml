@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_mapview"
+        android:id="@+id/mapViewFragment"
         android:title="@string/button_mapview" />
 
     <item
-        android:id="@+id/navigation_listview"
+        android:id="@+id/RestaurantListFragment"
         android:title="@string/button_listview" />
 
     <item
-        android:id="@+id/navigation_workmates"
+        android:id="@+id/workmatesFragment"
         android:title="@string/button_workmates" />
 
 </menu>

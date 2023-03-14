@@ -53,6 +53,7 @@ dependencies {
 
     //FIREBASE
     implementation platform('com.google.firebase:firebase-bom:31.2.2')
+    implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.firebaseui:firebase-ui-auth:8.0.1'
 
@@ -61,7 +62,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.2'
 
     //FACEBOOK AUTH
-    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
+    implementation("com.facebook.android:facebook-android-sdk:14.1.1")
 
 
 
@@ -87,6 +88,11 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     // For control over item selection of both touch and mouse driven selection
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
+
+    //Google Maps
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+
+
 
 
 }

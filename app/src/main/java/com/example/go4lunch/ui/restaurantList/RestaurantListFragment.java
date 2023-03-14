@@ -1,4 +1,4 @@
-package com.example.go4lunch.ui.listview;
+package com.example.go4lunch.ui.restaurantList;
 
 import android.os.Bundle;
 
@@ -45,9 +45,9 @@ public class RestaurantListFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_list_restaurant, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.list_view_recyclerview);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.restaurant_view_recyclerview);
         mLayoutManager = new LinearLayoutManager(getActivity());
         adapter = new RestaurantListAdapter(users);
         recyclerView.setLayoutManager(mLayoutManager);
