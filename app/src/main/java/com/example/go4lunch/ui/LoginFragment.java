@@ -85,7 +85,7 @@ public class LoginFragment extends Fragment {
                 facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        handleFacebookAccessToken(loginResult.getAccessToken());
+                        userManager.handleFacebookAccessToken(loginResult.getAccessToken());
                     }
 
                     @Override
@@ -113,25 +113,11 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
-    private void handleFacebookAccessToken(AccessToken token) {
+   /* private void handleFacebookAccessToken(AccessToken token) {
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-        firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            startActivity(new Intent(getContext(), MainActivity.class));
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(getContext(), task.getException().getMessage(),
-                                    Toast.LENGTH_SHORT).show();
-                        }
+        firebaseAuth.signInWithCredential(credential);
 
-                    }
-                });
-    }
+    }*/
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

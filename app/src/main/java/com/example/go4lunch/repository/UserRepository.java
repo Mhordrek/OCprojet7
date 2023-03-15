@@ -6,8 +6,11 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.example.go4lunch.model.User;
+import com.facebook.AccessToken;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -19,6 +22,8 @@ public class UserRepository {
     private static final String USERNAME_FIELD = "username";
 
     private static volatile UserRepository instance;
+
+    private FirebaseAuth firebaseAuth;
 
     private UserRepository(){}
 
@@ -57,6 +62,12 @@ public class UserRepository {
                 Log.d("facebook","user created");
             });
         }
+    }
+
+    public void handleFacebookAccessToken(AccessToken token) {
+        firebaseAuth = FirebaseAuth.getInstance();
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        firebaseAuth.signInWithCredential(credential);
     }
 
     // Get User Data from Firestore
