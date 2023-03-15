@@ -53,7 +53,6 @@ public class LoginFragment extends Fragment {
     private static final int RC_SIGN_IN = 123;
     private UserManager userManager = UserManager.getInstance();
     private CallbackManager callbackManager;
-    private FirebaseAuth firebaseAuth;
     private LoginButton facebookLoginButton;
 
 
@@ -71,7 +70,6 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
-        firebaseAuth = FirebaseAuth.getInstance();
 
         facebookLoginButton = binding.buttonFacebook.findViewById(R.id.buttonFacebook);
         facebookLoginButton.setFragment(this);
@@ -113,11 +111,6 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
-   /* private void handleFacebookAccessToken(AccessToken token) {
-        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-        firebaseAuth.signInWithCredential(credential);
-
-    }*/
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
