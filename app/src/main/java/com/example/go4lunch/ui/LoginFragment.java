@@ -105,7 +105,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //startGoogleSignInActivity();
-                NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.mainFragment);
+                NavHostFragment.findNavController(LoginFragment.this).navigate(R.id.action_loginFragment_to_mainFragment);
             }
         });
         return view;
