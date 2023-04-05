@@ -11,7 +11,7 @@
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <fragment
-        android:id="@+id/RestaurantListFragment"
+        android:id="@+id/restaurantListFragment"
         android:name="com.example.go4lunch.ui.restaurantList.RestaurantListFragment"
         android:label="fragment_list_view"
         tools:layout="@layout/fragment_list_restaurant" />
@@ -44,7 +44,7 @@
             app:destination="@id/mapViewFragment" />
         <action
             android:id="@+id/action_mainFragment_to_RestaurantListFragment"
-            app:destination="@id/RestaurantListFragment" />
+            app:destination="@id/restaurantListFragment" />
         <action
             android:id="@+id/action_mainFragment_to_workmatesFragment"
             app:destination="@id/workmatesFragment" />

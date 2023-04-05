@@ -6,7 +6,7 @@
         android:title="@string/button_mapview" />
 
     <item
-        android:id="@+id/RestaurantListFragment"
+        android:id="@+id/restaurantListFragment"
         android:title="@string/button_listview" />
 
     <item
