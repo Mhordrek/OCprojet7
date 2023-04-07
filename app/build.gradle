@@ -71,7 +71,8 @@ dependencies {
     //FACEBOOK AUTH
     implementation("com.facebook.android:facebook-android-sdk:14.1.1")
 
-
+    //GOOGLE AUTH
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
     //EASY PERMISSIONS
     implementation 'pub.devrel:easypermissions:3.0.0'

@@ -35,6 +35,8 @@ public class UserManager {
 
     public void handleFacebookAccessToken(AccessToken token){userRepository.handleFacebookAccessToken(token);}
 
+    public void firebaseAuthWithGoogle(String idToken){userRepository.firebaseAuthWithGoogle(idToken);}
+
     public Task<User> getUserData(){
         // Get the user from Firestore and cast it to a User model Object
         return userRepository.getUserData().continueWith(task -> task.getResult().toObject(User.class)) ;

@@ -1,18 +1,23 @@
 package com.example.go4lunch.repository;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.go4lunch.model.User;
 import com.facebook.AccessToken;
 import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -70,6 +75,12 @@ public class UserRepository {
         firebaseAuth.signInWithCredential(credential);
     }
 
+    public void firebaseAuthWithGoogle(String idToken){
+        firebaseAuth = FirebaseAuth.getInstance();
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        firebaseAuth.signInWithCredential(credential);
+    }
+
     // Get User Data from Firestore
     public Task<DocumentSnapshot> getUserData(){
         String uid = this.getCurrentUserUID();
@@ -116,4 +127,5 @@ public class UserRepository {
     public Task<Void> deleteUser(Context context){
         return AuthUI.getInstance().delete(context);
     }
+
 }

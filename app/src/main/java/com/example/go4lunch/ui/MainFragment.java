@@ -1,18 +1,18 @@
 package com.example.go4lunch.ui;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,10 +21,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.go4lunch.R;
+import com.example.go4lunch.databinding.FragmentLoginBinding;
 import com.example.go4lunch.databinding.NavHeaderMainBinding;
 import com.example.go4lunch.manager.UserManager;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseUser;
 
 
@@ -35,6 +38,8 @@ public class MainFragment extends Fragment {
     private NavHeaderMainBinding navHeaderMainBinding;
     private ImageView userImage;
     private TextView userName, userMail;
+    private FragmentLoginBinding binding;
+    private GoogleSignInClient googleSignInClient;
 
 
     @Override
@@ -54,10 +59,26 @@ public class MainFragment extends Fragment {
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.drawer_nav_view);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_yourlunch, R.id.nav_settings, R.id.nav_logout
+                R.id.nav_yourLunch, R.id.nav_settings, R.id.nav_logout
         )
                 .setOpenableLayout(drawerLayout)
                 .build();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+
+                if(id == R.id.nav_logout){
+                    if(userManager.isCurrentUserLogged()){
+                        userManager.signOut(getContext());
+                        showSnackBar(getString(R.string.button_sign_out_account));
+                    }
+
+                }
+
+                return true;
+            }
+        });
 
         NavHostFragment navHostFragment = (NavHostFragment) this.getChildFragmentManager().findFragmentById(R.id.nav_host_main_fragment);
         NavController navController = navHostFragment.getNavController();
@@ -94,5 +115,9 @@ public class MainFragment extends Fragment {
 
         }
 
+    }
+
+    private void showSnackBar(String message) {
+        Snackbar.make(binding.loginFragment, message, Snackbar.LENGTH_SHORT).show();
     }
 }
