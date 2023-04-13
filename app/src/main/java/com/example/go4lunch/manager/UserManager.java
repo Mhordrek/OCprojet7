@@ -42,6 +42,7 @@ public class UserManager {
         return userRepository.getUserData().continueWith(task -> task.getResult().toObject(User.class)) ;
     }
 
+
     public Task<Void> updateUsername(String username){
         return userRepository.updateUsername(username);
     }
